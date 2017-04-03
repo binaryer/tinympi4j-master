@@ -1,9 +1,30 @@
 # tinympi4j-master
-a micro java offline distributed computation framework for fun, DO NOT use in production environment !
-微型java分布式离线计算框架, 学习作品， 勿用于生产环境 !
+a micro java offline distributed computation framework __for fun, DO NOT use in production environment !__  
+微型java分布式离线计算框架, __功能尚未完善， 勿用于生产环境 !__  
+
+## 原理
+`tinympi4j-master`创建任务并提交到`tinympi4j-slave`执行， 执行完毕后把结果汇总到`tinympi4j-master`
+
+## tinympi4j的特性
++ slave端可动态加载执行class文件，如需增加新功能，只需在master端新增任务类并提交到slave，而无需修改slave端代码
++ slave支持多个任务并发/并行执行
++ 使用HTTP协议通信
++ 场景: 找素数/grep/wordcount/超大文件或大量小文件处理
++ 不支持复杂数据类型
++ 没有进度监控，健康监控，无容错功能
 
 
-以下例子实现分布式计算10000以内的素数
+## 使用流程
+1. 在多个计算节点启动 `[tinympi4j-slave](https://github.com/binaryer/tinympi4j-master)`	
+`java -jar tinympi4j-slave-0.1.jar {port}`
+
+2. (在tinympi4j-master端) 编写任务类, 实现`SplitableTask`接口
+
+3. (在tinympi4j-master端) 参考下面代码，把任务提交到计算节点执行
+
+4. (在tinympi4j-master端) 等待所有计算节点执行完毕，获取结果
+
+## 以下例子实现分布式计算10000以内的素数
 
 ```java
 public class Test{
@@ -17,7 +38,8 @@ public class Test{
 		//创建任务
 		final BigTask<Integer> bigtask = BigTask.create(masterurl);
 	
-		//添加任务到两台计算节点， 请确保计算节点上的tomcat已启动
+		//添加任务到两台计算节点， 请确保计算节点上的 tinympi4j-slave 已启动
+		//关于计算节点: https://github.com/binaryer/tinympi4j-slave
 		bigtask.addTask2Slave("http://192.168.1.101:1234", PrimeSplitedtask.class, new Integer[] { 2, 5000 });
 		bigtask.addTask2Slave("http://192.168.1.102:1234", PrimeSplitedtask.class, new Integer[] { 5001, 10000 });
 	
