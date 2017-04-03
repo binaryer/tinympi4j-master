@@ -3,10 +3,11 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 微型java分布式离线计算框架, __功能尚未完善， 勿用于生产环境 !__  
 
 ## 原理
-`tinympi4j-master`创建任务并提交到`tinympi4j-slave`执行， 执行完毕后把结果汇总到`tinympi4j-master`
+`tinympi4j-master`创建任务并提交到`tinympi4j-slave`执行， 执行完毕后把结果汇总到`tinympi4j-master`  
+`tinympi4j-slave`可动态加载执行class文件，如需增加新功能，只需在`tinympi4j-master`端新增任务类并提交到`tinympi4j-slave`，而无需修改`tinympi4j-slave`端代码
 
 ## tinympi4j的特性
-+ slave端可动态加载执行class文件，如需增加新功能，只需在master端新增任务类并提交到slave，而无需修改slave端代码
++ 简单直观, 学习曲线平坦
 + slave支持多个任务并发/并行执行
 + 使用HTTP协议通信
 + 场景: 找素数/grep/wordcount/超大文件或大量小文件处理
@@ -15,7 +16,7 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 
 
 ## 使用流程
-1. 在多个计算节点启动 [tinympi4j-slave](https://github.com/binaryer/tinympi4j-master)
+1. 在多个计算节点启动 [tinympi4j-slave](https://github.com/binaryer/tinympi4j-master)  
 `java -jar tinympi4j-slave-0.1.jar {port}`
 
 2. (在tinympi4j-master端) 编写任务类, 实现`SplitableTask`接口
