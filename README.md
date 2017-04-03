@@ -95,3 +95,7 @@ public class PrimeSplitedtask implements SplitableTask {
 }
 
 ```
+
+## Author
+林春宇@深圳  
+chunyu_lin@163.com  
