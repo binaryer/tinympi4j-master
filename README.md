@@ -1,6 +1,6 @@
 # tinympi4j-master
 a micro java offline distributed computation framework __for fun, DO NOT use in production environment !__  
-微型java分布式离线计算框架, __功能尚未完善， 勿用于生产环境 !__  
+微型java分布式离线计算框架  
 
 ## 原理
 `tinympi4j-master`创建任务并提交到`tinympi4j-slave`执行， 执行完毕后把结果汇总到`tinympi4j-master`  
