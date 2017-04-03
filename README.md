@@ -9,7 +9,7 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 ![](https://raw.githubusercontent.com/binaryer/tinympi4j-master/master/mapreduce.jpg)
 
 ## 特性
-+ 简单直观, 学习曲线平坦
++ 简单直观, 没有任何学习难度
 + slave支持多个任务并发/并行执行
 + 使用HTTP协议通信
 + 场景: 找素数/grep/wordcount/超大文件或大量小文件处理
