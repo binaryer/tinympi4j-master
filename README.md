@@ -15,7 +15,7 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 
 
 ## 使用流程
-1. 在多个计算节点启动 `[tinympi4j-slave](https://github.com/binaryer/tinympi4j-master)`	
+1. 在多个计算节点启动 [tinympi4j-slave](https://github.com/binaryer/tinympi4j-master)
 `java -jar tinympi4j-slave-0.1.jar {port}`
 
 2. (在tinympi4j-master端) 编写任务类, 实现`SplitableTask`接口
