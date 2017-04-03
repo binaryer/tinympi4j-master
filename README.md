@@ -4,7 +4,7 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 
 ## 原理
 `tinympi4j-master`创建任务并提交到`tinympi4j-slave`执行， 执行完毕后把结果汇总到`tinympi4j-master`  
-`tinympi4j-slave`可动态加载执行class文件，如需增加新功能，只需在`tinympi4j-master`端新增任务类并提交到`tinympi4j-slave`，而无需修改`tinympi4j-slave`端代码
+`tinympi4j-slave`可动态加载执行class文件，如需增加新功能，只需在`tinympi4j-master`端新增任务类，而无需修改`tinympi4j-slave`端代码
 
 ## tinympi4j的特性
 + 简单直观, 学习曲线平坦
