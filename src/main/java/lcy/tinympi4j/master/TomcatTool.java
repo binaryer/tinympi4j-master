@@ -1,5 +1,6 @@
 package lcy.tinympi4j.master;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.Collection;
@@ -16,8 +17,6 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SerializationUtils;
 
-import jodd.util.SystemUtil;
-
 public class TomcatTool {
 	
 	 private static final Logger logger = Logger.getLogger(TomcatTool.class.getName()); 
@@ -25,7 +24,7 @@ public class TomcatTool {
 	public static void startMasterTomcat(int port) {
 
 		//fixed slow SessionIdGeneratorBase.createSecureRandom
-		if(SystemUtil.isHostLinux())
+		if(new File("/dev/./urandom").exists())
 			System.setProperty("java.security.egd", "file:/dev/./urandom");
 		
 		final Tomcat tomcat = new Tomcat();
@@ -75,5 +74,6 @@ public class TomcatTool {
 			}
 		}).start();
 	}
+	
 
 }
