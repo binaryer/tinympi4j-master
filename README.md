@@ -96,6 +96,18 @@ public class PrimeSplitedtask implements SplitableTask {
 
 ```
 
+## 后续完善
++ 子任务进度查询
++ slave端更多的设置选项: 如线程池大小
++ 单个子任务完成异步回调
++ 总任务完成异步回调
++ 暂停/继续/取消执行中的任务
++ 支持所有数据类型
++ 支持压缩传输
++ 支持未完成的任务回传已完成结果
++ 支持子节点故障转移
+
+
 ## Author
 林春宇@深圳  
 chunyu_lin@163.com  
