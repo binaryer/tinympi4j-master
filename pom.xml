@@ -9,7 +9,7 @@
 
 	<groupId>lcy</groupId>
 	<artifactId>tinympi4j-master</artifactId>
-	<version>0.1</version>
+	<version>0.2</version>
 	<packaging>jar</packaging>
 
 	<name>tinympi4j-master</name>
