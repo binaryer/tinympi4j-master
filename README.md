@@ -27,6 +27,8 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 
 4. (在tinympi4j-master端) 等待所有计算节点执行完毕，获取结果
 
+__注意java class版本: 如master上java7编译的class，slave上的java版本要>=7__
+
 ## 例子
 #### 分布式计算10000以内的素数
 
