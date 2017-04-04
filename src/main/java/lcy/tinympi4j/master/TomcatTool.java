@@ -16,12 +16,18 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SerializationUtils;
 
+import jodd.util.SystemUtil;
+
 public class TomcatTool {
 	
 	 private static final Logger logger = Logger.getLogger(TomcatTool.class.getName()); 
 	
 	public static void startMasterTomcat(int port) {
 
+		//fixed slow SessionIdGeneratorBase.createSecureRandom
+		if(SystemUtil.isHostLinux())
+			System.setProperty("java.security.egd", "file:/dev/./urandom");
+		
 		final Tomcat tomcat = new Tomcat();
 		tomcat.setPort(port);
 		tomcat.setBaseDir(System.getProperty("java.io.tmpdir")); 
