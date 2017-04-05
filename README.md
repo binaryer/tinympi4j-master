@@ -18,7 +18,7 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 
 
 ## 使用流程
-1. 在多个计算节点启动 [tinympi4j-slave](https://github.com/binaryer/tinympi4j-slave)  
+1. 在所有计算节点启动 [tinympi4j-slave](https://github.com/binaryer/tinympi4j-slave)  
 `java -jar tinympi4j-slave-0.2.jar {port}`
 
 2. (在tinympi4j-master端) 编写任务类, 实现`SplitableTask`接口
@@ -36,7 +36,7 @@ __注意java class版本: 如master上java7编译的class，slave上的java版�
 
 	public static void main(String[] args) {
 	
-		//启动master上的tomcat
+		//启动master(也就是本机)上的tomcat, 任务完成后slave会回调这个地址
 		final int masterport = 8086;
 		final String masterurl = "http://192.168.1.100:" + masterport;
 		TomcatTool.startMasterTomcat(masterport);
