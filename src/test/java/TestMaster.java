@@ -22,7 +22,7 @@ public class TestMaster {
 		//bigtask.addTask2Slave("http://192.168.1.103:12346", PrimeSplitedtask.class, new Integer[] { 101, 150 });
 		//bigtask.addTask2Slave("http://192.168.1.2:1234", PrimeSplitedtask.class, new Integer[] { 201, 300 });
 		final Collection<Integer> resultset = bigtask.executeAndWait();
-		
+
 		for (int n : resultset){
 			System.out.println(n);
 		}
