@@ -15,8 +15,10 @@ public class TestMaster {
 
 		final BigTask<Integer> bigtask = BigTask.create(masterurl);
 
-		bigtask.addTask2Slave("http://127.0.0.1:1234", PrimeSplitedtask.class, new Integer[] { 2, 50 });
-		bigtask.addTask2Slave("http://127.0.0.1:1235", PrimeSplitedtask.class, new Integer[] { 51, 100 });
+		bigtask.addTask2Slave("http://127.0.0.1:1234", PrimeSplitedtask.class, 
+				new Integer[] { 2, 50 });
+		bigtask.addTask2Slave("http://127.0.0.1:1235", PrimeSplitedtask.class, 
+				new Integer[] { 51, 100 });
 		//bigtask.addTask2Slave("http://192.168.1.103:12346", PrimeSplitedtask.class, new Integer[] { 101, 150 });
 		//bigtask.addTask2Slave("http://192.168.1.2:1234", PrimeSplitedtask.class, new Integer[] { 201, 300 });
 		final Collection<Integer> resultset = bigtask.executeAndWait();
