@@ -50,11 +50,11 @@ public class BigTask <T>{
 	
 	private final ReadWriteLock okslavetaskidset_rwl = new ReentrantReadWriteLock();
 
-	public void addTask2Slave(String slaveurl, Class<? extends SplitableTask> clazz, Object[] params) {
+	public void addTask2Slave(String slaveurl, Class<? extends SplitableTask> clazz, Serializable[] params) {
 		addTask2Slave(slaveurl, clazz, params, 0);
 	}
 	
-	public void addTask2Slave(String slaveurl, Class<? extends SplitableTask> clazz, Object[] params, Integer slaveto) {
+	public void addTask2Slave(String slaveurl, Class<? extends SplitableTask> clazz, Serializable[] params, Integer slaveto) {
 		final String slavetaskid = String.format("%s-%s", id, RandomStringUtils.random(16, "abcdefghijklmnopqrstuvwxyz"));
 		slavemap.put(slavetaskid, new Object[]{slaveurl, clazz, params, slaveto});
 		logger.info(String.format("distribute subtask to %s, id = %s", slaveurl, slavetaskid));
