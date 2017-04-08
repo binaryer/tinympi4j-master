@@ -14,8 +14,12 @@ a micro java offline distributed computation framework __for fun, DO NOT use in 
 + slave支持多个任务并发/并行执行
 + 使用HTTP协议通信
 + 场景: 找素数/grep/wordcount/超大文件或大量小文件处理
+
+## 不足
 + 只支持Java基本数据类型
++ 每个subtask类型只支持单class, 不支持内部类，继承，接口
 + 没有进度监控，健康监控功能，也无容错设计
++ 不支持重新加载类，只能新建类而不能修改slave已经加载过的类
 
 
 ## 使用流程
@@ -105,7 +109,8 @@ public class PrimeSplitedtask implements SplitableTask {
 + 单个子任务完成异步回调
 + 总任务完成异步回调
 + 暂停/继续/取消执行中的任务
-+ 支持所有数据类型
++ 支持所有数据类型 支持内部类
++ 支持重新加载类
 + 支持压缩传输
 + 支持未完成的任务回传已完成结果
 + 支持子节点故障转移
